@@ -116,11 +116,11 @@ public class OptimalSearchRoot {
             this.rootIndex = rootIndex;
         }
 
-        public int getCost() {
+        int getCost() {
             return cost;
         }
 
-        public int getRootIndex() {
+        int getRootIndex() {
             return rootIndex;
         }
 
