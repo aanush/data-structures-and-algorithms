@@ -70,10 +70,6 @@ public class LongestGeometricProgressionSet {
         // which must include arr[y] as the last number
         int[][] gpLengthDP = new int[arr.length][arr.length];
 
-        // by default;
-        // gpLengthDP[x][y] = 0; ie..
-        // gpLengthDP[x][y] + 1 = 1 = default length of the longest gp sequence
-
         // column : x == 0; second last number is arr[0]
         for (int x = 0; x <= 0; x++) {
             for (int y = x + 1; y <= arr.length - 1; y++) {
@@ -84,8 +80,8 @@ public class LongestGeometricProgressionSet {
         }
 
         // column : x >= 1;
-        // try for all x : arr[x] as the second last number of the sequence
-        // try for all y : arr[y] as the last number of the sequence (y > x)
+        // try for all x : arr[x] as the second last number of the set
+        // try for all y : arr[y] as the last number of the set (y > x)
         for (int x = 1; x <= arr.length - 2; x++) {
             int y = x + 1;
             int w = x - 1;
