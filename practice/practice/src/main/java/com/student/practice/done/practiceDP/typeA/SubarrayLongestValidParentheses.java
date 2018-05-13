@@ -30,23 +30,23 @@ public class SubarrayLongestValidParentheses {
         final String opening = "(";
         final String closing = ")";
 
-        // lengthDP[x] is the length of the longest valid parenthesis that includes arr[x] as the last one
+        // lengthDP[x] is the length of the longest valid parentheses that includes arr[x] as the last one
         int[] lengthDP = new int[arr.length];
 
         // lengthDP[0] = 0;
         lengthDP[1] = arr[0].equals(opening) && arr[1].equals(closing) ? 2 : 0;
 
         for (int x = 2; x <= arr.length - 1; x++) {
-            // parenthesis that includes opening as the last one
-            // could not be a valid parenthesis
+            // parentheses that includes opening as the last one
+            // could not be a valid parentheses
             // if (arr[x].equals(opening)) {
             //     lengthDP[x] = 0;
             // }
             //
-            // parenthesis that includes closing as the last one
-            // could be a valid parenthesis
+            // parentheses that includes closing as the last one
+            // could be a valid parentheses
             // if there is a corresponding opening such that
-            // the parenthesis between the opening and the closing is a valid parenthesis
+            // the parentheses between the opening and the closing is a valid parentheses
             if (arr[x].equals(closing)) {
                 if (arr[x - 1].equals(opening)) {
                     lengthDP[x] = lengthDP[x - 2] + 2;
