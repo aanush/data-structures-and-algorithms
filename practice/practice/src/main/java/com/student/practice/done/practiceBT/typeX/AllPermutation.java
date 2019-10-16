@@ -25,7 +25,7 @@ public class AllPermutation {
                 // current node = current state of (arr, currIndex)
                 Integer next = arr[nextIndex];
                 Integer curr = arr[currIndex];
-                // change state of (arr, currentIndex) => go to a child node from current node
+                // change state of (arr, currIndex) => go to a child node from current node
                 arr[currIndex] = next;
                 arr[nextIndex] = curr;
                 currIndex++;
