@@ -10,7 +10,7 @@ public class SubsetSum {
         SubsetSum app = new SubsetSum();
         int[] arr = {5, 7, 8, 10, 12, 13, 15, 18};
         int sum = 30;
-        Consumer<boolean[]> consumer = bbb -> System.out.println(Arrays.toString(IntStream.range(0, arr.length).filter(i -> bbb[i]).map(i -> arr[i]).toArray()));
+        Consumer<boolean[]> consumer = choice -> System.out.println(Arrays.toString(IntStream.range(0, arr.length).filter(i -> choice[i]).map(i -> arr[i]).toArray()));
         app.choose(arr, sum, consumer);
     }
 
@@ -29,23 +29,31 @@ public class SubsetSum {
         } else {
             // current node
             boolean bool = choice[x];
-            // going to child 1 : choosing arr[x]
+            // going to child node 1 : choosing arr[x]
             choice[x] = true;
             s = s + arr[x];
             x++;
-            // dfs at child 1
-            choose(choice, x, s, arr, sum, consumer);
-            // coming back to current node from child 1
+            // all positive arr[x]
+            if (s <= sum) {
+                // dfs at child node 1
+                choose(choice, x, s, arr, sum, consumer);
+            }
+            // coming back to current node from child node 1
             x--;
             s = s - arr[x];
             choice[x] = bool;
-            // going to child 2 : not choosing arr[x]
+            // going to child node 2 : not choosing arr[x]
             choice[x] = false;
             x++;
-            choose(choice, x, s, arr, sum, consumer);
-            // coming back to current node from child 2
+            // all positive arr[x]
+            if (s <= sum) {
+                // dfs at child node 2
+                choose(choice, x, s, arr, sum, consumer);
+            }
+            // coming back to current node from child node 2
             x--;
             choice[x] = bool;
+            // current node
         }
     }
 
