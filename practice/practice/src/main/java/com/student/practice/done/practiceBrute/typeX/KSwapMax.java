@@ -13,7 +13,7 @@ public class KSwapMax {
     }
 
     private long swapk(int[] arr, int k) {
-        long max = val(arr);
+        long max = value(arr);
         for (int x = 0; x <= arr.length - 1; x++) {
             long cur = swapk(arr, x, k, max);
             if (cur > max) {
@@ -30,7 +30,7 @@ public class KSwapMax {
                 if (arr[x] < arr[y]) {
                     // going from node to child node
                     swap1(arr, x, y);
-                    long cur = val(arr);
+                    long cur = value(arr);
                     if (cur > max) {
                         max = cur;
                     }
@@ -54,7 +54,7 @@ public class KSwapMax {
         arr[y] = arrx;
     }
 
-    private long val(int[] arr) {
+    private long value(int[] arr) {
         return Arrays.stream(arr).mapToLong(a -> a).reduce((a, b) -> (10 * a) + b).orElse(0);
     }
 
